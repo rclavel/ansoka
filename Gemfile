@@ -5,6 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+CANDIDATES = %w(
+)
+
+group :candidates do
+  CANDIDATES.each do |candidate|
+    gem candidate, path: File.join(Dir.pwd, 'tmp', 'candidates', candidate)
+  end
+end
+
 gem 'rails', '~> 5.0.1'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
