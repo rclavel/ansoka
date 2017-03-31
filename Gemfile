@@ -5,12 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-CANDIDATES = %w(
-)
-
 group :candidates do
-  CANDIDATES.each do |candidate|
-    gem candidate, path: File.join(Dir.pwd, 'tmp', 'candidates', candidate)
+  if File.exists?('./candidates.txt')
+    File.read('./candidates.txt').split("\n").reject(&:empty?).each do |candidate|
+      gem candidate, path: File.join(Dir.pwd, 'tmp', 'candidates', candidate)
+    end
   end
 end
 

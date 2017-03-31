@@ -18,11 +18,9 @@
 
 # Add a candidate
 
-- `ruby ansoka.rb candidate_name /path/to/candidate/git_folder`
-- Add `candidate_name` to the `CANDIDATES` constant in the Gemfile
-- `bundle install`
+- `rails g ansoka candidate_name /path/to/candidate/git_folder`
 - `rake test`
-- And voilà:
+- And voilà!
 
 ```
 $ rake test
